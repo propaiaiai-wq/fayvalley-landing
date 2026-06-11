@@ -181,6 +181,26 @@ html[dir="rtl"] .register h2{font-family:'Cairo',sans-serif;font-weight:700;line
 .register .sec-kicker{color:var(--gold)}
 .register .sec-kicker::before,.register .sec-kicker::after{background:rgba(201,168,124,.6)}
 
+/* ── lead form ── */
+.lead-form{max-width:620px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:start}
+@media(max-width:600px){.lead-form{grid-template-columns:1fr}}
+.ff{display:flex;flex-direction:column;gap:7px}
+.ff label{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+html[dir="rtl"] .ff label{letter-spacing:.03em;font-size:13.5px}
+.ff input,.ff select{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.32);border-radius:11px;padding:14px 15px;color:var(--white);font:inherit;font-size:15.5px;min-height:50px;transition:border-color .2s,background .2s;appearance:none;-webkit-appearance:none}
+.ff select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A87C' stroke-width='1.8' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-inline-end:38px}
+html[dir="rtl"] .ff select{background-position:left 15px center}
+.ff select option{color:var(--ink);background:var(--cream)}
+.ff input::placeholder{color:rgba(255,255,255,.45)}
+.ff input:focus,.ff select:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.14)}
+.ff input.err,.ff select.err{border-color:#E08A7A}
+.form-submit{grid-column:1/-1;width:100%;margin-top:6px}
+.form-submit[disabled]{opacity:.55;cursor:default}
+.form-msg{grid-column:1/-1;font-size:14.5px;min-height:20px}
+.form-msg.ok{color:#9FD8A8}
+.form-msg.bad{color:#F0A493}
+.form-consent{grid-column:1/-1;font-size:11.5px;color:#C9BCAC;line-height:1.6}
+
 /* ── footer ── */
 footer{background:var(--ink);color:#B4A899;font-size:12.5px;padding:40px 0;line-height:1.85}
 footer .wrap{display:flex;flex-direction:column;gap:9px}
@@ -243,7 +263,7 @@ footer a:hover{color:var(--white)}
   <div class="nav">
     <div class="brand"><img src="img/nuhai-logo.png" alt="Nuhai"><span data-en="Properties" data-ar="العقارية">Properties</span></div>
     <div class="nav-right">
-      <a class="nav-cta" id="navCta" href="#" onclick="trackContact()" data-en="Register interest" data-ar="سجّل اهتمامك">Register interest</a>
+      <a class="nav-cta" href="#register" data-en="Register interest" data-ar="سجّل اهتمامك">Register interest</a>
       <button class="lang-btn" id="langBtn" onclick="toggleLang()" aria-label="Switch language">العربية</button>
     </div>
   </div>
@@ -257,14 +277,8 @@ footer a:hover{color:var(--white)}
     <h1 id="heroTitle" aria-label="Fay Valley"></h1>
     <p class="sub" id="heroSub" data-en="Where Abu Dhabi grows its green heart — villas & townhouses from AED 3.1M, designed for life outdoors." data-ar="حيث ينبض قلب أبوظبي الأخضر — فلل وتاون هاوس تبدأ من ٣٫١ مليون درهم، مصمّمة للحياة في الهواء الطلق.">Where Abu Dhabi grows its green heart — villas & townhouses from AED 3.1M, designed for life outdoors.</p>
     <div class="cta-row" id="heroCtas">
-      <a class="btn btn-solid" id="ctaWhats" href="#" onclick="trackContact()">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.84 9.84 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88m8.42-18.3A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
-        <span data-en="WhatsApp us" data-ar="راسلنا واتساب">WhatsApp us</span>
-      </a>
-      <a class="btn btn-ghost" id="ctaCall" href="#" onclick="trackContact()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span data-en="Call now" data-ar="اتصل الآن">Call now</span>
-      </a>
+      <a class="btn btn-solid" href="#register" data-en="Register interest" data-ar="سجّل اهتمامك">Register interest</a>
+      <a class="btn btn-ghost" href="#residences" data-en="Explore the homes" data-ar="اكتشف الوحدات">Explore the homes</a>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true"><i></i></div>
@@ -380,17 +394,42 @@ footer a:hover{color:var(--white)}
   <div class="wrap">
     <div class="sec-kicker" data-en="Register Interest" data-ar="سجّل اهتمامك">Register Interest</div>
     <h2 data-en="Availability, prices & the payment plan — direct to you" data-ar="التوفّر والأسعار وخطة السداد — مباشرة لك">Availability, prices & the payment plan — direct to you</h2>
-    <p class="lead" data-en="Our team responds within the hour." data-ar="فريقنا يرد خلال ساعة.">Our team responds within the hour.</p>
-    <div class="cta-row" style="justify-content:center">
-      <a class="btn btn-solid" id="ctaWhats2" href="#" onclick="trackContact()">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.84 9.84 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88m8.42-18.3A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
-        <span data-en="WhatsApp us" data-ar="راسلنا واتساب">WhatsApp us</span>
-      </a>
-      <a class="btn btn-ghost" id="ctaCall2" href="#" onclick="trackContact()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span data-en="Call now" data-ar="اتصل الآن">Call now</span>
-      </a>
-    </div>
+    <p class="lead" data-en="Leave your details — our team responds within the hour." data-ar="اترك بياناتك — فريقنا يرد خلال ساعة.">Leave your details — our team responds within the hour.</p>
+    <form id="leadForm" class="lead-form" novalidate>
+      <div class="ff">
+        <label for="f-name" data-en="Full name" data-ar="الاسم الكامل">Full name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="ff">
+        <label for="f-phone" data-en="Mobile number (UAE)" data-ar="رقم الهاتف (الإمارات)">Mobile number (UAE)</label>
+        <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="05X XXX XXXX" autocomplete="tel" required>
+      </div>
+      <div class="ff">
+        <label for="f-budget" data-en="Your budget" data-ar="ميزانيتك">Your budget</label>
+        <select id="f-budget" name="budget" required>
+          <option value="" data-en="Select…" data-ar="اختر…">Select…</option>
+          <option value="3M-4M" data-en="AED 3M – 4M" data-ar="٣ – ٤ مليون">AED 3M – 4M</option>
+          <option value="4M-5.5M" data-en="AED 4M – 5.5M" data-ar="٤ – ٥٫٥ مليون">AED 4M – 5.5M</option>
+          <option value="5.5M+" data-en="AED 5.5M+" data-ar="٥٫٥ مليون وأكثر">AED 5.5M+</option>
+          <option value="Under 3M" data-en="Under AED 3M" data-ar="أقل من ٣ مليون">Under AED 3M</option>
+        </select>
+      </div>
+      <div class="ff">
+        <label for="f-bedrooms" data-en="Which home interests you?" data-ar="أي وحدة تناسبك؟">Which home interests you?</label>
+        <select id="f-bedrooms" name="bedrooms" required>
+          <option value="" data-en="Select…" data-ar="اختر…">Select…</option>
+          <option value="2BR Townhouse" data-en="2BR Townhouse" data-ar="تاون هاوس غرفتين">2BR Townhouse</option>
+          <option value="3BR Townhouse" data-en="3BR Townhouse" data-ar="تاون هاوس ٣ غرف">3BR Townhouse</option>
+          <option value="4BR Villa" data-en="4BR Villa" data-ar="فيلا ٤ غرف">4BR Villa</option>
+          <option value="5-6BR Villa" data-en="5–6BR Villa" data-ar="فيلا ٥–٦ غرف">5–6BR Villa</option>
+          <option value="Not sure" data-en="Not sure" data-ar="لست متأكد">Not sure</option>
+        </select>
+      </div>
+      <input type="text" name="company" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+      <button type="submit" class="btn btn-solid form-submit" id="formBtn" data-en="Request availability & prices" data-ar="أرسل لي التوفّر والأسعار">Request availability & prices</button>
+      <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+      <div class="form-consent" data-en="By submitting, you agree to be contacted by Nuhai Properties about Fay Valley by phone, SMS, email or WhatsApp." data-ar="بإرسالك الطلب توافق على تواصل نوهّي العقارية معك حول فاي فالي عبر الهاتف أو الرسائل أو البريد أو واتساب.">By submitting, you agree to be contacted by Nuhai Properties about Fay Valley by phone, SMS, email or WhatsApp.</div>
+    </form>
   </div>
 </section>
 
@@ -406,12 +445,10 @@ footer a:hover{color:var(--white)}
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
-// ── CONFIG — public contact number (digits only, no +) ──
-const PHONE = '971500000000'; // TODO(Jad): replace with the real number
-const WA_TEXT = {
-  en: "Hi, I'm interested in Fay Valley — please send availability, prices and the payment plan.",
-  ar: "مرحباً، مهتم بفاي فالي — أرسلوا لي التوفّر والأسعار وخطة السداد.",
-};
+// ── CONFIG ──
+// Google Apps Script web-app endpoint that appends leads to the Fay Valley sheet.
+// Deploy wiki/apps-scripts/fay-valley-website-lead.gs, paste the /exec URL here.
+const LEAD_ENDPOINT = ''; // TODO: set after Apps Script deployment
 
 let lang = new URLSearchParams(location.search).get('lang') === 'ar' ? 'ar' : 'en';
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -454,14 +491,62 @@ function applyLang() {
     el.textContent = el.dataset[lang];
   });
   document.getElementById('langBtn').textContent = lang === 'ar' ? 'English' : 'العربية';
-  const wa = `https://wa.me/${PHONE}?text=${encodeURIComponent(WA_TEXT[lang])}`;
-  ['ctaWhats','ctaWhats2','navCta'].forEach(id => { const el = document.getElementById(id); if (el) el.href = wa; });
-  ['ctaCall','ctaCall2'].forEach(id => document.getElementById(id).href = `tel:+${PHONE}`);
+  document.querySelectorAll('option[data-en]').forEach(o => { o.textContent = o.dataset[lang]; });
   buildHeroTitle(); splitStatement();
 }
 function toggleLang() { lang = lang === 'ar' ? 'en' : 'ar'; applyLang(); if (!reduceMotion) ScrollTrigger.refresh(); }
-function trackContact() { if (window.fbq) fbq('track', 'Contact'); }
 applyLang();
+
+// ── lead form ──
+const MSG = {
+  ok:    { en: 'Thank you — our team will reach out shortly.', ar: 'شكراً — بيتواصل معك فريقنا قريباً.' },
+  phone: { en: 'Please enter a valid UAE mobile number.', ar: 'الرجاء إدخال رقم هاتف إماراتي صحيح.' },
+  fill:  { en: 'Please complete all fields.', ar: 'الرجاء تعبئة جميع الحقول.' },
+  err:   { en: 'Something went wrong — please try again.', ar: 'حدث خطأ — حاول مرة أخرى.' },
+};
+document.getElementById('leadForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target, msg = document.getElementById('formMsg'), btn = document.getElementById('formBtn');
+  if (f.company.value) return; // honeypot
+  msg.className = 'form-msg';
+  [...f.querySelectorAll('input,select')].forEach(el => el.classList.remove('err'));
+
+  const name = f.name.value.trim();
+  const digits = f.phone.value.replace(/[^0-9]/g, '');
+  const phoneOk = /^(971)?0?5\d{8}$/.test(digits);
+  if (!name || !f.budget.value || !f.bedrooms.value) {
+    msg.textContent = MSG.fill[lang]; msg.classList.add('bad');
+    if (!name) f.name.classList.add('err');
+    if (!f.budget.value) f.budget.classList.add('err');
+    if (!f.bedrooms.value) f.bedrooms.classList.add('err');
+    return;
+  }
+  if (!phoneOk) { msg.textContent = MSG.phone[lang]; msg.classList.add('bad'); f.phone.classList.add('err'); return; }
+  const phone = '+971' + digits.replace(/^971/, '').replace(/^0/, '');
+
+  btn.disabled = true;
+  try {
+    if (LEAD_ENDPOINT) {
+      await fetch(LEAD_ENDPOINT, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          name, phone,
+          budget: f.budget.value,
+          bedrooms: f.bedrooms.value,
+          language: lang.toUpperCase(),
+          source: 'website',
+        }),
+      });
+    }
+    if (window.fbq) fbq('track', 'Lead');
+    f.querySelectorAll('.ff, .form-submit').forEach(el => el.style.display = 'none');
+    msg.textContent = MSG.ok[lang]; msg.classList.add('ok');
+  } catch (err) {
+    msg.textContent = MSG.err[lang]; msg.classList.add('bad');
+    btn.disabled = false;
+  }
+});
 
 // ── motion ──
 if (!reduceMotion && window.gsap) {
