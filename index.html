@@ -52,10 +52,10 @@ html[dir="rtl"] #veil .v-mark{font-family:'Cairo',sans-serif;letter-spacing:.15e
 header{position:fixed;top:0;left:0;right:0;z-index:var(--z-header);transition:background .35s,box-shadow .35s;background:transparent}
 header.scrolled{background:rgba(36,30,25,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.07)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1120px;margin:0 auto}
-.brand{display:flex;align-items:center;gap:11px;color:var(--white)}
-.brand img{height:26px;width:auto}
-.brand span{font-size:13px;letter-spacing:.16em;text-transform:uppercase}
-html[dir="rtl"] .brand span{letter-spacing:.04em;font-size:14px}
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:3px;color:var(--white)}
+.brand img{height:22px;width:auto;object-fit:contain}
+.brand span{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;opacity:.92;padding-inline-start:2px}
+html[dir="rtl"] .brand span{letter-spacing:.1em;font-size:12px}
 .nav-right{display:flex;align-items:center;gap:12px}
 .lang-btn{border:1px solid rgba(255,255,255,.45);color:var(--white);background:transparent;padding:8px 18px;border-radius:99px;font-size:13.5px;cursor:pointer;transition:background .2s;font-family:'Cairo','Josefin Sans',sans-serif;min-height:38px}
 .lang-btn:hover{background:rgba(255,255,255,.14)}
@@ -68,12 +68,13 @@ html[dir="rtl"] .brand span{letter-spacing:.04em;font-size:14px}
 .hero-bg{position:absolute;inset:-6% 0;background:url('img/hero.jpg') center 65%/cover no-repeat;will-change:transform}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,13,.42) 0%,rgba(20,16,13,.06) 42%,rgba(20,16,13,.78) 100%)}
 .hero-inner{position:relative;z-index:2;padding:0 24px 9vh;max-width:1120px;margin:0 auto;width:100%}
-.kicker{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.kicker{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;text-shadow:0 1px 16px rgba(20,16,13,.55)}
 html[dir="rtl"] .kicker{letter-spacing:.08em;font-size:14.5px}
 .hero h1{font-family:'Cinzel',serif;font-weight:400;font-size:clamp(54px,11vw,128px);line-height:1;margin-bottom:18px;letter-spacing:.05em}
 html[dir="rtl"] .hero h1{font-family:'Cairo',sans-serif;font-weight:900;letter-spacing:0;line-height:1.15}
+.hero h1 .word{display:inline-block;white-space:nowrap}
 .hero h1 .ch{display:inline-block;will-change:transform}
-.hero .sub{font-size:clamp(17px,2.3vw,23px);max-width:580px;margin-bottom:34px;color:#F2EADF;font-weight:300}
+.hero .sub{font-size:clamp(17px,2.3vw,23px);max-width:580px;margin-bottom:34px;color:#F2EADF;font-weight:300;text-shadow:0 1px 18px rgba(20,16,13,.5)}
 html[dir="rtl"] .hero .sub{font-weight:400}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;border-radius:99px;font-size:15.5px;font-weight:500;transition:background .2s,border-color .2s,color .2s;cursor:pointer;min-height:48px}
@@ -183,9 +184,48 @@ html[dir="rtl"] .register h2{font-family:'Cairo',sans-serif;font-weight:700;line
 /* ── footer ── */
 footer{background:var(--ink);color:#B4A899;font-size:12.5px;padding:40px 0;line-height:1.85}
 footer .wrap{display:flex;flex-direction:column;gap:9px}
-footer img{height:22px;width:auto;opacity:.92;margin-bottom:10px}
+.f-brand{display:flex;flex-direction:column;align-items:flex-start;gap:3px;margin-bottom:10px}
+.f-brand img{height:20px;width:auto;object-fit:contain;opacity:.92}
+.f-brand span{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#CFC3B4;padding-inline-start:2px}
+html[dir="rtl"] .f-brand span{letter-spacing:.1em;font-size:11.5px}
 footer a{text-decoration:underline;transition:color .2s}
 footer a:hover{color:var(--white)}
+
+/* ── mobile sleekness ── */
+@media(max-width:600px){
+  body{font-size:15.5px}
+  .nav{padding:12px 18px}
+  .hero{min-height:520px}
+  .hero-inner{padding:0 20px 9vh}
+  .hero h1{font-size:clamp(38px,12vw,60px)}
+  .hero .sub{font-size:16.5px;margin-bottom:26px}
+  .kicker{font-size:11px;letter-spacing:.24em;margin-bottom:12px}
+  html[dir="rtl"] .kicker{letter-spacing:.06em;font-size:13px}
+  .cta-row{gap:10px}
+  .cta-row .btn{flex:1 1 100%;padding:15px 24px}
+  .scroll-cue{display:none}
+  .statement{padding:11vh 0 8vh}
+  .statement h2{font-size:clamp(26px,7.4vw,34px);line-height:1.3}
+  .band{height:52vh;min-height:320px}
+  .band .band-cap{padding:70px 20px 22px}
+  .band .band-cap .display{font-size:18px}
+  .stats .wrap{padding:36px 20px;gap:24px 14px}
+  .stat .n{font-size:30px}
+  .stat .l{font-size:12.5px}
+  .residences,.lifestyle,.payment,.location{padding:9vh 0}
+  .res-head{margin-bottom:36px}
+  .res-grid,.loc-grid{gap:32px}
+  table{font-size:14px}
+  td{padding:12px 8px}
+  th{padding:0 8px 10px}
+  .life-grid{margin-top:40px}
+  .life-card{aspect-ratio:3/3.8}
+  .pay-grid{margin-top:36px;gap:14px}
+  .pay-card{padding:30px 24px}
+  .pay-card .big{font-size:42px}
+  .register{padding:12vh 0}
+  footer{font-size:12px;padding:32px 0}
+}
 
 /* reveal base states (JS adds motion; CSS keeps no-JS visible) */
 .r-up,.r-fade{opacity:1}
@@ -201,7 +241,7 @@ footer a:hover{color:var(--white)}
 
 <header id="header">
   <div class="nav">
-    <div class="brand"><img src="img/nuhai-logo.png" alt="Nuhai Properties logo"><span data-en="Nuhai Properties" data-ar="نوهّي العقارية">Nuhai Properties</span></div>
+    <div class="brand"><img src="img/nuhai-logo.png" alt="Nuhai"><span data-en="Properties" data-ar="العقارية">Properties</span></div>
     <div class="nav-right">
       <a class="nav-cta" id="navCta" href="#" onclick="trackContact()" data-en="Register interest" data-ar="سجّل اهتمامك">Register interest</a>
       <button class="lang-btn" id="langBtn" onclick="toggleLang()" aria-label="Switch language">العربية</button>
@@ -356,7 +396,7 @@ footer a:hover{color:var(--white)}
 
 <footer>
   <div class="wrap">
-    <img src="img/nuhai-logo.png" alt="Nuhai Properties logo">
+    <div class="f-brand"><img src="img/nuhai-logo.png" alt="Nuhai"><span data-en="Properties" data-ar="العقارية">Properties</span></div>
     <div data-en="Nuhai Properties — Dubai, UAE. Project ID 20250000678986. Fay Valley is Phase 2 of the Fay Hills masterplan by Taraf in partnership with Masdar City, Abu Dhabi." data-ar="نوهّي العقارية — دبي، الإمارات. رقم المشروع 20250000678986. فاي فالي هو المرحلة الثانية من مخطط فاي هيلز من «طرف» بالشراكة مع مدينة مصدر، أبوظبي.">Nuhai Properties — Dubai, UAE. Project ID 20250000678986. Fay Valley is Phase 2 of the Fay Hills masterplan by Taraf in partnership with Masdar City, Abu Dhabi.</div>
     <div data-en="Prices, sizes and payment plans are indicative, set by the developer and subject to change and availability. Golden Visa eligibility subject to government criteria. This page is marketing material, not an offer." data-ar="الأسعار والمساحات وخطط السداد استرشادية يحددها المطوّر وقابلة للتغيير وحسب التوفّر. الإقامة الذهبية وفق معايير الجهات الحكومية. هذه الصفحة مادة تسويقية وليست عرضاً.">Prices, sizes and payment plans are indicative, set by the developer and subject to change and availability. Golden Visa eligibility subject to government criteria. This page is marketing material, not an offer.</div>
     <div><a href="https://nuhai.net/privacy" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a></div>
@@ -387,10 +427,16 @@ function buildHeroTitle() {
     s.className = 'ch'; s.textContent = text;
     h.appendChild(s);
   } else {
-    text.split('').forEach(c => {
-      const s = document.createElement('span');
-      s.className = 'ch'; s.innerHTML = c === ' ' ? '&nbsp;' : c;
-      h.appendChild(s);
+    text.split(' ').forEach((word, wi, arr) => {
+      const w = document.createElement('span');
+      w.className = 'word';
+      word.split('').forEach(c => {
+        const s = document.createElement('span');
+        s.className = 'ch'; s.textContent = c;
+        w.appendChild(s);
+      });
+      h.appendChild(w);
+      if (wi < arr.length - 1) h.appendChild(document.createTextNode(' '));
     });
   }
 }
