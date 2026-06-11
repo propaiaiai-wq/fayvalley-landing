@@ -457,7 +457,7 @@ footer a:hover{color:var(--white)}
 // ── CONFIG ──
 // Google Apps Script web-app endpoint that appends leads to the Fay Valley sheet.
 // Deploy wiki/apps-scripts/fay-valley-website-lead.gs, paste the /exec URL here.
-const LEAD_ENDPOINT = ''; // TODO: set after Apps Script deployment
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwdpIxF0NAp-HHrtGMZder8PtZuOI-dJnvfW7rS3iyn1iCNFdnQM50bE5IbCi5CTyCq3A/exec';
 
 let lang = new URLSearchParams(location.search).get('lang') === 'ar' ? 'ar' : 'en';
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
