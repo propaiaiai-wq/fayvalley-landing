@@ -129,15 +129,23 @@ html[dir="rtl"] .lead{font-weight:400}
 .res-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
 @media(max-width:880px){.res-grid{grid-template-columns:1fr}}
 .res-grid figure{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 24px 70px rgba(36,30,25,.22)}
-.res-grid figure img{width:100%;transition:transform .6s cubic-bezier(.2,.6,.2,1)}
-.res-grid figure:hover img{transform:scale(1.035)}
+.res-grid figure img{width:100%}
 table{width:100%;border-collapse:collapse;font-size:15.5px}
 th{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);text-align:start;padding:0 12px 12px;border-bottom:1.5px solid var(--terracotta)}
 html[dir="rtl"] th{letter-spacing:.05em;font-size:13px}
-tbody tr{transition:background .2s}
+tbody tr{transition:background .2s,box-shadow .2s;cursor:pointer}
 tbody tr:hover{background:rgba(142,79,68,.06)}
+tbody tr.active{background:rgba(142,79,68,.1);box-shadow:inset 3px 0 0 var(--terracotta)}
+html[dir="rtl"] tbody tr.active{box-shadow:inset -3px 0 0 var(--terracotta)}
+tbody tr.active td:first-child{color:var(--terracotta-deep);font-weight:600}
+tbody tr:focus-visible{outline:2px solid var(--terracotta);outline-offset:-2px}
 td{padding:15px 12px;border-bottom:1px solid #DFD3C1}
 td:first-child{font-weight:500}
+.res-hint{margin-top:14px;font-size:13px;color:#8a7d6f;display:flex;align-items:center;gap:8px}
+.res-hint::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--terracotta);animation:hintPulse 2s ease-in-out infinite}
+@keyframes hintPulse{0%,100%{opacity:.4}50%{opacity:1}}
+.res-figure{position:relative}
+.res-cap{position:absolute;bottom:14px;inset-inline-start:14px;background:rgba(36,30,25,.78);backdrop-filter:blur(6px);color:var(--white);font-size:13.5px;padding:8px 16px;border-radius:99px;letter-spacing:.04em}
 .price{color:var(--terracotta-deep);font-weight:600;white-space:nowrap}
 
 /* ── lifestyle editorial ── */
@@ -340,15 +348,16 @@ footer a:hover{color:var(--white)}
             <th data-en="Price" data-ar="السعر">Price</th>
           </tr></thead>
           <tbody id="resRows">
-            <tr><td data-en="2BR + guest townhouse" data-ar="تاون هاوس غرفتين + مجلس">2BR + guest townhouse</td><td data-en="2,250 sqft" data-ar="٢٬٢٥٠ قدم²">2,250 sqft</td><td class="price" data-en="AED 3.1M – 3.6M" data-ar="٣٫١ – ٣٫٦ مليون">AED 3.1M – 3.6M</td></tr>
-            <tr><td data-en="3BR + guest townhouse" data-ar="تاون هاوس ٣ غرف + مجلس">3BR + guest townhouse</td><td data-en="2,500 sqft" data-ar="٢٬٥٠٠ قدم²">2,500 sqft</td><td class="price" data-en="AED 3.7M – 4.5M" data-ar="٣٫٧ – ٤٫٥ مليون">AED 3.7M – 4.5M</td></tr>
-            <tr><td data-en="4BR villa" data-ar="فيلا ٤ غرف">4BR villa</td><td data-en="3,070–3,700 sqft" data-ar="٣٬٠٧٠–٣٬٧٠٠ قدم²">3,070–3,700 sqft</td><td class="price" data-en="AED 4.7M – 5M" data-ar="٤٫٧ – ٥ مليون">AED 4.7M – 5M</td></tr>
-            <tr><td data-en="5BR villa" data-ar="فيلا ٥ غرف">5BR villa</td><td data-en="4,600 sqft" data-ar="٤٬٦٠٠ قدم²">4,600 sqft</td><td class="price" data-en="from AED 6.1M" data-ar="من ٦٫١ مليون">from AED 6.1M</td></tr>
-            <tr><td data-en="6BR villa" data-ar="فيلا ٦ غرف">6BR villa</td><td data-en="5,600 sqft" data-ar="٥٬٦٠٠ قدم²">5,600 sqft</td><td class="price" data-en="from AED 7.6M" data-ar="من ٧٫٦ مليون">from AED 7.6M</td></tr>
+            <tr class="active" data-img="img/townhouse.jpg" tabindex="0"><td data-en="2BR + guest townhouse" data-ar="تاون هاوس غرفتين + مجلس">2BR + guest townhouse</td><td data-en="2,250 sqft" data-ar="٢٬٢٥٠ قدم²">2,250 sqft</td><td class="price" data-en="AED 3.1M – 3.6M" data-ar="٣٫١ – ٣٫٦ مليون">AED 3.1M – 3.6M</td></tr>
+            <tr data-img="img/home-3br.jpg" tabindex="0"><td data-en="3BR + guest townhouse" data-ar="تاون هاوس ٣ غرف + مجلس">3BR + guest townhouse</td><td data-en="2,500 sqft" data-ar="٢٬٥٠٠ قدم²">2,500 sqft</td><td class="price" data-en="AED 3.7M – 4.5M" data-ar="٣٫٧ – ٤٫٥ مليون">AED 3.7M – 4.5M</td></tr>
+            <tr data-img="img/home-4br.jpg" tabindex="0"><td data-en="4BR villa" data-ar="فيلا ٤ غرف">4BR villa</td><td data-en="3,070–3,700 sqft" data-ar="٣٬٠٧٠–٣٬٧٠٠ قدم²">3,070–3,700 sqft</td><td class="price" data-en="AED 4.7M – 5M" data-ar="٤٫٧ – ٥ مليون">AED 4.7M – 5M</td></tr>
+            <tr data-img="img/home-5br.jpg" tabindex="0"><td data-en="5BR villa" data-ar="فيلا ٥ غرف">5BR villa</td><td data-en="4,600 sqft" data-ar="٤٬٦٠٠ قدم²">4,600 sqft</td><td class="price" data-en="from AED 6.1M" data-ar="من ٦٫١ مليون">from AED 6.1M</td></tr>
+            <tr data-img="img/home-6br.jpg" tabindex="0"><td data-en="6BR villa" data-ar="فيلا ٦ غرف">6BR villa</td><td data-en="5,600 sqft" data-ar="٥٬٦٠٠ قدم²">5,600 sqft</td><td class="price" data-en="from AED 7.6M" data-ar="من ٧٫٦ مليون">from AED 7.6M</td></tr>
           </tbody>
         </table>
+        <div class="res-hint" data-en="Select a home type to preview it" data-ar="اختر نوع الوحدة لمعاينتها">Select a home type to preview it</div>
       </div>
-      <figure><img src="img/townhouse.jpg" alt="Fay Valley townhouse exterior render" loading="lazy"></figure>
+      <figure class="res-figure"><img id="resImg" src="img/townhouse.jpg" alt="Fay Valley home exterior render" loading="lazy"><figcaption id="resCap" class="res-cap"></figcaption></figure>
     </div>
   </div>
 </section>
@@ -494,8 +503,35 @@ function applyLang() {
   document.querySelectorAll('option[data-en]').forEach(o => { o.textContent = o.dataset[lang]; });
   buildHeroTitle(); splitStatement();
 }
-function toggleLang() { lang = lang === 'ar' ? 'en' : 'ar'; applyLang(); if (!reduceMotion) ScrollTrigger.refresh(); }
+function toggleLang() { lang = lang === 'ar' ? 'en' : 'ar'; applyLang(); updateResCap(); if (!reduceMotion) ScrollTrigger.refresh(); }
 applyLang();
+
+// ── home picker: row click swaps the render ──
+const resImg = document.getElementById('resImg');
+const resCap = document.getElementById('resCap');
+function updateResCap() {
+  const active = document.querySelector('#resRows tr.active td');
+  if (active && resCap) resCap.textContent = active.textContent;
+}
+document.querySelectorAll('#resRows tr').forEach(row => {
+  // preload so the first switch is instant
+  const pre = new Image(); pre.src = row.dataset.img;
+  const select = () => {
+    if (row.classList.contains('active')) return;
+    document.querySelectorAll('#resRows tr').forEach(r => r.classList.remove('active'));
+    row.classList.add('active');
+    const swap = () => { resImg.src = row.dataset.img; updateResCap(); };
+    if (!reduceMotion && window.gsap) {
+      gsap.to(resImg, { opacity: 0, scale: 1.03, duration: .22, ease: 'power1.in', onComplete: () => {
+        swap();
+        gsap.fromTo(resImg, { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1, duration: .45, ease: 'power2.out' });
+      }});
+    } else { swap(); }
+  };
+  row.addEventListener('click', select);
+  row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); } });
+});
+updateResCap();
 
 // ── lead form ──
 const MSG = {
