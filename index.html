@@ -190,6 +190,23 @@ html[dir="rtl"] .register h2{font-family:'Cairo',sans-serif;font-weight:700;line
 .register .sec-kicker::before,.register .sec-kicker::after{background:rgba(201,168,124,.6)}
 
 /* ── lead form ── */
+/* ── hero with embedded form ── */
+.hero{align-items:center;min-height:100svh;height:auto}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;width:100%;max-width:1120px;margin:0 auto;padding:104px 24px 48px}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:22px;padding:92px 22px 34px;align-items:start}}
+.hero-copy{color:var(--white)}
+.hero-copy h1{font-size:clamp(40px,6.2vw,78px);line-height:1.02}
+.hero-price{font-family:'Cinzel',serif;font-size:clamp(18px,2.3vw,26px);color:var(--gold);margin:18px 0 12px;letter-spacing:.04em;text-shadow:0 1px 16px rgba(20,16,13,.6)}
+html[dir="rtl"] .hero-price{font-family:'Cairo',sans-serif;font-weight:700}
+.hero-points{list-style:none;margin-top:18px;display:flex;flex-wrap:wrap;gap:9px 18px}
+.hero-points li{font-size:13.5px;color:#EFE7DC;display:flex;align-items:center;gap:7px;text-shadow:0 1px 12px rgba(20,16,13,.5)}
+.hero-points li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+@media(max-width:880px){.hero-points{display:none}}
+.hero-form-card{background:rgba(24,19,15,.64);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:26px 24px;box-shadow:0 24px 64px rgba(0,0,0,.42)}
+.hfc-title{font-family:'Cinzel',serif;color:var(--white);font-size:21px;margin-bottom:5px}
+html[dir="rtl"] .hfc-title{font-family:'Cairo',sans-serif;font-weight:700}
+.hfc-sub{color:#D9CDBE;font-size:13.5px;margin-bottom:17px}
+.hero-form-card .lead-form{max-width:none;margin:0;grid-template-columns:1fr;gap:13px}
 .lead-form{max-width:620px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:start}
 @media(max-width:600px){.lead-form{grid-template-columns:1fr}}
 .ff{display:flex;flex-direction:column;gap:7px}
@@ -277,16 +294,59 @@ footer a:hover{color:var(--white)}
   </div>
 </header>
 
-<!-- ACT I — ARRIVAL -->
+<!-- ACT I — ARRIVAL + LEAD FORM -->
 <section class="hero" id="top">
   <div class="hero-bg" id="heroBg" role="img" aria-label="Fay Valley community entrance render"></div>
-  <div class="hero-inner">
-    <div class="kicker r" id="heroKicker" data-en="Taraf × Masdar City · Abu Dhabi" data-ar="طرف × مدينة مصدر · أبوظبي">Taraf × Masdar City · Abu Dhabi</div>
-    <h1 id="heroTitle" aria-label="Fay Valley"></h1>
-    <p class="sub" id="heroSub" data-en="Where Abu Dhabi grows its green heart — villas & townhouses from AED 3.1M, designed for life outdoors." data-ar="حيث ينبض قلب أبوظبي الأخضر — فلل وتاون هاوس تبدأ من ٣٫١ مليون درهم، مصمّمة للحياة في الهواء الطلق.">Where Abu Dhabi grows its green heart — villas & townhouses from AED 3.1M, designed for life outdoors.</p>
-    <div class="cta-row" id="heroCtas">
-      <a class="btn btn-solid" href="#register" data-en="Register interest" data-ar="سجّل اهتمامك">Register interest</a>
-      <a class="btn btn-ghost" href="#residences" data-en="Explore the homes" data-ar="اكتشف الوحدات">Explore the homes</a>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="kicker r" id="heroKicker" data-en="Taraf × Masdar City · Abu Dhabi" data-ar="طرف × مدينة مصدر · أبوظبي">Taraf × Masdar City · Abu Dhabi</div>
+      <h1 id="heroTitle" aria-label="Fay Valley"></h1>
+      <p class="hero-price" data-en="Villas & townhouses from AED 3.1M" data-ar="فلل وتاون هاوس تبدأ من ٣٫١ مليون درهم">Villas & townhouses from AED 3.1M</p>
+      <p class="sub" id="heroSub" data-en="In Masdar City — Abu Dhabi's green heart. 40/60 payment plan, Golden-Visa eligible." data-ar="في مدينة مصدر — قلب أبوظبي الأخضر. خطة سداد ٤٠/٦٠، ومؤهّلة للإقامة الذهبية.">In Masdar City — Abu Dhabi's green heart. 40/60 payment plan, Golden-Visa eligible.</p>
+      <ul class="hero-points">
+        <li data-en="Phase 1 sold out — AED 608M" data-ar="المرحلة الأولى بيعت بالكامل — ٦٠٨ مليون">Phase 1 sold out — AED 608M</li>
+        <li data-en="5% down in 2026" data-ar="دفعة أولى ٥٪ في ٢٠٢٦">5% down in 2026</li>
+        <li data-en="Every unit Golden-Visa eligible" data-ar="كل وحدة مؤهّلة للإقامة الذهبية">Every unit Golden-Visa eligible</li>
+      </ul>
+    </div>
+    <div class="hero-form-card">
+      <div class="hfc-title" data-en="Get prices & availability" data-ar="احصل على الأسعار والتوفّر">Get prices & availability</div>
+      <div class="hfc-sub" data-en="Our team responds within the hour." data-ar="فريقنا يرد خلال ساعة.">Our team responds within the hour.</div>
+      <form id="leadForm" class="lead-form" novalidate>
+        <div class="ff">
+          <label for="f-name" data-en="Full name" data-ar="الاسم الكامل">Full name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="ff">
+          <label for="f-phone" data-en="Mobile number (UAE)" data-ar="رقم الهاتف (الإمارات)">Mobile number (UAE)</label>
+          <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="05X XXX XXXX" autocomplete="tel" required>
+        </div>
+        <div class="ff">
+          <label for="f-budget" data-en="Your budget" data-ar="ميزانيتك">Your budget</label>
+          <select id="f-budget" name="budget" required>
+            <option value="" data-en="Select…" data-ar="اختر…">Select…</option>
+            <option value="3M-4M" data-en="AED 3M – 4M" data-ar="٣ – ٤ مليون">AED 3M – 4M</option>
+            <option value="4M-5.5M" data-en="AED 4M – 5.5M" data-ar="٤ – ٥٫٥ مليون">AED 4M – 5.5M</option>
+            <option value="5.5M+" data-en="AED 5.5M+" data-ar="٥٫٥ مليون وأكثر">AED 5.5M+</option>
+            <option value="Under 3M" data-en="Under AED 3M" data-ar="أقل من ٣ مليون">Under AED 3M</option>
+          </select>
+        </div>
+        <div class="ff">
+          <label for="f-bedrooms" data-en="Which home interests you?" data-ar="أي وحدة تناسبك؟">Which home interests you?</label>
+          <select id="f-bedrooms" name="bedrooms" required>
+            <option value="" data-en="Select…" data-ar="اختر…">Select…</option>
+            <option value="2BR Townhouse" data-en="2BR Townhouse" data-ar="تاون هاوس غرفتين">2BR Townhouse</option>
+            <option value="3BR Townhouse" data-en="3BR Townhouse" data-ar="تاون هاوس ٣ غرف">3BR Townhouse</option>
+            <option value="4BR Villa" data-en="4BR Villa" data-ar="فيلا ٤ غرف">4BR Villa</option>
+            <option value="5-6BR Villa" data-en="5–6BR Villa" data-ar="فيلا ٥–٦ غرف">5–6BR Villa</option>
+            <option value="Not sure" data-en="Not sure" data-ar="لست متأكد">Not sure</option>
+          </select>
+        </div>
+        <input type="text" name="company" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <button type="submit" class="btn btn-solid form-submit" id="formBtn" data-en="Request availability & prices" data-ar="أرسل لي التوفّر والأسعار">Request availability & prices</button>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+        <div class="form-consent" data-en="By submitting, you agree to be contacted by Nuhai Properties about Fay Valley by phone, SMS, email or WhatsApp." data-ar="بإرسالك الطلب توافق على تواصل نوهّي العقارية معك حول فاي فالي عبر الهاتف أو الرسائل أو البريد أو واتساب.">By submitting, you agree to be contacted by Nuhai Properties about Fay Valley by phone, SMS, email or WhatsApp.</div>
+      </form>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true"><i></i></div>
@@ -397,48 +457,16 @@ footer a:hover{color:var(--white)}
   </div>
 </section>
 
-<!-- ACT VII — THE INVITATION -->
+<!-- ACT VII — THE INVITATION (closing CTA → hero form) -->
 <section class="register" id="register">
   <div class="reg-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-kicker" data-en="Register Interest" data-ar="سجّل اهتمامك">Register Interest</div>
     <h2 data-en="Availability, prices & the payment plan — direct to you" data-ar="التوفّر والأسعار وخطة السداد — مباشرة لك">Availability, prices & the payment plan — direct to you</h2>
-    <p class="lead" data-en="Leave your details — our team responds within the hour." data-ar="اترك بياناتك — فريقنا يرد خلال ساعة.">Leave your details — our team responds within the hour.</p>
-    <form id="leadForm" class="lead-form" novalidate>
-      <div class="ff">
-        <label for="f-name" data-en="Full name" data-ar="الاسم الكامل">Full name</label>
-        <input id="f-name" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div class="ff">
-        <label for="f-phone" data-en="Mobile number (UAE)" data-ar="رقم الهاتف (الإمارات)">Mobile number (UAE)</label>
-        <input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="05X XXX XXXX" autocomplete="tel" required>
-      </div>
-      <div class="ff">
-        <label for="f-budget" data-en="Your budget" data-ar="ميزانيتك">Your budget</label>
-        <select id="f-budget" name="budget" required>
-          <option value="" data-en="Select…" data-ar="اختر…">Select…</option>
-          <option value="3M-4M" data-en="AED 3M – 4M" data-ar="٣ – ٤ مليون">AED 3M – 4M</option>
-          <option value="4M-5.5M" data-en="AED 4M – 5.5M" data-ar="٤ – ٥٫٥ مليون">AED 4M – 5.5M</option>
-          <option value="5.5M+" data-en="AED 5.5M+" data-ar="٥٫٥ مليون وأكثر">AED 5.5M+</option>
-          <option value="Under 3M" data-en="Under AED 3M" data-ar="أقل من ٣ مليون">Under AED 3M</option>
-        </select>
-      </div>
-      <div class="ff">
-        <label for="f-bedrooms" data-en="Which home interests you?" data-ar="أي وحدة تناسبك؟">Which home interests you?</label>
-        <select id="f-bedrooms" name="bedrooms" required>
-          <option value="" data-en="Select…" data-ar="اختر…">Select…</option>
-          <option value="2BR Townhouse" data-en="2BR Townhouse" data-ar="تاون هاوس غرفتين">2BR Townhouse</option>
-          <option value="3BR Townhouse" data-en="3BR Townhouse" data-ar="تاون هاوس ٣ غرف">3BR Townhouse</option>
-          <option value="4BR Villa" data-en="4BR Villa" data-ar="فيلا ٤ غرف">4BR Villa</option>
-          <option value="5-6BR Villa" data-en="5–6BR Villa" data-ar="فيلا ٥–٦ غرف">5–6BR Villa</option>
-          <option value="Not sure" data-en="Not sure" data-ar="لست متأكد">Not sure</option>
-        </select>
-      </div>
-      <input type="text" name="company" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-      <button type="submit" class="btn btn-solid form-submit" id="formBtn" data-en="Request availability & prices" data-ar="أرسل لي التوفّر والأسعار">Request availability & prices</button>
-      <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
-      <div class="form-consent" data-en="By submitting, you agree to be contacted by Nuhai Properties about Fay Valley by phone, SMS, email or WhatsApp." data-ar="بإرسالك الطلب توافق على تواصل نوهّي العقارية معك حول فاي فالي عبر الهاتف أو الرسائل أو البريد أو واتساب.">By submitting, you agree to be contacted by Nuhai Properties about Fay Valley by phone, SMS, email or WhatsApp.</div>
-    </form>
+    <p class="lead" data-en="Leave your details and our team responds within the hour." data-ar="اترك بياناتك وفريقنا يرد خلال ساعة.">Leave your details and our team responds within the hour.</p>
+    <div class="cta-row" style="justify-content:center;margin-top:8px">
+      <a class="btn btn-solid" href="#top" data-en="Register your interest" data-ar="سجّل اهتمامك">Register your interest</a>
+    </div>
   </div>
 </section>
 
@@ -598,8 +626,10 @@ if (!reduceMotion && window.gsap) {
     .from('#heroBg', { scale: 1.12, duration: 2.4, ease: 'power2.out' }, '-=.9')
     .from('#heroTitle .ch', { yPercent: 110, opacity: 0, stagger: .045, duration: .9, ease: 'power3.out' }, '-=2.0')
     .from('#heroKicker', { y: 18, opacity: 0, duration: .6 }, '-=1.4')
+    .from('.hero-price', { y: 18, opacity: 0, duration: .6 }, '-=1.2')
     .from('#heroSub', { y: 22, opacity: 0, duration: .7 }, '-=1.1')
-    .from('#heroCtas .btn', { y: 22, opacity: 0, stagger: .12, duration: .6 }, '-=.8');
+    .from('.hero-points li', { y: 14, opacity: 0, stagger: .08, duration: .5 }, '-=.9')
+    .from('.hero-form-card', { y: 28, opacity: 0, duration: .8, ease: 'power3.out' }, '-=1.0');
 
   // hero parallax on scroll
   gsap.to('#heroBg', {
